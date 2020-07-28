@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { IdProviderContext } from "../contexts/IdProviderContext";
 
 const CardStyle = styled.div`
   background-color: #add8e6;
@@ -13,6 +14,8 @@ const CardStyle = styled.div`
 `;
 
 const Card = (props) => {
+  const { setshowId } = useContext(IdProviderContext);
+
   return (
     <CardStyle>
       <p>{props.show.name}</p>
@@ -23,7 +26,10 @@ const Card = (props) => {
         alt={props.show.name}
       />
       <br />
-      <Link key={props.show.id} to={"/shows/" + props.show.id}>
+      <Link
+        onClick={() => setshowId(props.show.id)}
+        to={"/show/" + props.show.id}
+      >
         Details
       </Link>
     </CardStyle>
