@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { DetailProvider } from "../contexts/DetailProvider";
+import { DetailContext } from "../contexts/DetailProvider";
 
 export default function Main() {
-  const { main } = useContext(DetailProvider);
+  const { main } = useContext(DetailContext);
 
   return <div>{main.summary}</div>;
 }
