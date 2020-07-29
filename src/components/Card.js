@@ -28,7 +28,7 @@ const Card = (props) => {
       <br />
       <Link
         onClick={() => setshowId(props.show.id)}
-        to={"/show/" + props.show.id}
+        to={"/shows/" + props.show.id}
       >
         Details
       </Link>
