@@ -13,13 +13,17 @@ const Detail = (props) => {
     []
   );
 
-  // const main = fetchedData ? fetchedData.data : [];
+  const main = fetchedData ? fetchedData.data : [];
   const episodes = fetchedData ? fetchedData.data._embedded.episodes : [];
-  // const cast = fetchedData ? fetchedData.data._embedded.cast : [];
+  const cast = fetchedData ? fetchedData.data._embedded.cast : [];
 
   return (
     <div className="container">
-      <Link key={showId + "main"} to={"/shows/" + showId + "/main"}>
+      <Link
+        onClick={() => addMain(main)}
+        key={showId + "main"}
+        to={"/shows/" + showId + "/main"}
+      >
         Main
       </Link>{" "}
       |
@@ -31,7 +35,11 @@ const Detail = (props) => {
         Episodes
       </Link>{" "}
       |
-      <Link key={showId + "staff"} to={"/shows/" + showId + "/staff"}>
+      <Link
+        onClick={() => addCast(cast)}
+        key={showId + "staff"}
+        to={"/shows/" + showId + "/staff"}
+      >
         Staff
       </Link>{" "}
       |

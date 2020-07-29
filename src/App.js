@@ -9,6 +9,7 @@ import { IdProvider } from "./contexts/IdProviderContext";
 import { DetailProvider } from "./contexts/DetailProvider";
 import "./App.css";
 import Episodes from "./pages/Episodes";
+import Staff from "./pages/Staff";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route exact path="/shows/:id" component={Detail} />
               <Route exact path="/shows/:id/main" component={Main} />
               <Route exact path="/shows/:id/episodes" component={Episodes} />
+              <Route exact path="/shows/:id/staff" component={Staff} />
             </DetailProvider>
           </div>
         </div>
