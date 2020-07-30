@@ -18,7 +18,10 @@ const Detail = (props) => {
   const cast = fetchedData ? fetchedData.data._embedded.cast : [];
 
   return (
-    <div className="container">
+    <div>
+      <h1>hello</h1>
+      <h1>hello</h1>
+      <h1>{showId}</h1>
       <Link
         onClick={() => addMain(main)}
         key={showId + "main"}
@@ -42,7 +45,7 @@ const Detail = (props) => {
       >
         Staff
       </Link>{" "}
-      |
+      |<h1>hello</h1>
     </div>
   );
 };

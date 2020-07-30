@@ -8,11 +8,11 @@ const Shows = (props) => {
 
   if (isLoading) {
     return (
-      <ul>
+      <div className="box">
         {shows.map((show, index) => (
           <Card key={show.id} index={index} show={show} />
         ))}
-      </ul>
+      </div>
     );
   }
 };
