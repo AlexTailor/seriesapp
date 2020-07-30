@@ -4,7 +4,7 @@ import { DetailContext } from "../contexts/DetailProvider";
 import { useHttp } from "../hook/usehttp";
 import { Link } from "react-router-dom";
 
-const Detail = (props) => {
+const Detail = () => {
   const { showId } = useContext(IdProviderContext);
   const { addMain, addEpisodes, addCast } = useContext(DetailContext);
 
@@ -16,6 +16,9 @@ const Detail = (props) => {
   const main = fetchedData ? fetchedData.data : [];
   const episodes = fetchedData ? fetchedData.data._embedded.episodes : [];
   const cast = fetchedData ? fetchedData.data._embedded.cast : [];
+  const pic = fetchedData ? fetchedData.data.image : [];
+
+  console.log(main);
 
   return (
     <div className="container">
@@ -42,7 +45,17 @@ const Detail = (props) => {
       >
         Staff
       </Link>{" "}
-      |
+      <br />
+      <div className="details">
+        <p>{main.name}</p>
+        <div className="card">
+          <p>Genres: {main.genres}</p>
+          <p>Type: {main.type}</p>
+          <p>Status: {main.status}</p>
+        </div>
+        <img alt={main.name} src={pic.medium} />
+        <p>{main.summary}</p>
+      </div>
     </div>
   );
 };

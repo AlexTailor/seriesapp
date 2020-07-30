@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { DetailContext } from "../contexts/DetailProvider";
 import Episode from "../components/Episode";
 
-export default function Episodes() {
+const Episodes = () => {
   const { episodes } = useContext(DetailContext);
   console.log(episodes);
   return (
@@ -12,4 +12,5 @@ export default function Episodes() {
       ))}
     </ul>
   );
-}
+};
+export default Episodes;
