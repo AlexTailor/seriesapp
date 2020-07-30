@@ -1,6 +1,6 @@
 /* CSS VARIABLES */
 :root {
-  --primary: #2c18e0;
+  --primary: black;
   --light: #f3f3f3;
   --dark: #686868;
 }
@@ -19,7 +19,7 @@ body {
 }
 
 img {
-  max-width: 100%;
+  max-width: 180%;
 }
 
 h1 {
@@ -97,8 +97,10 @@ header {
 
 /* MAIN CONTIANER */
 .main-container {
-  padding: 50px;
-  margin-top: 40px;
+}
+
+.mainCont {
+  margin-top: 110px;
 }
 
 .box {

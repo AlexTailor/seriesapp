@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 import Shows from "./pages/Shows";
 import Detail from "./pages/Details";
 import Main from "./pages/Main";
-
+import Home from "./components/Home";
 import { IdProvider } from "./contexts/IdProviderContext";
 import { DetailProvider } from "./contexts/DetailProvider";
 import "./App.css";
@@ -24,6 +24,7 @@ function App() {
               <Route exact path="/shows/:id/main" component={Main} />
               <Route exact path="/shows/:id/episodes" component={Episodes} />
               <Route exact path="/shows/:id/staff" component={Staff} />
+              <Route exact path="/" component={Home} />
             </DetailProvider>
           </div>
         </div>
