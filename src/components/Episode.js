@@ -5,19 +5,19 @@ import styled from "styled-components";
 
 const CardStyle = styled.div`
   background-color: black;
-  width: 300px;
+  width: 50%;
   display: inline-block;
   vertical-align: baseline;
-
+  margin-left: 25%;
   text-align: center;
 `;
 
 const CardStyle2 = styled.div`
   background-color: black;
-  width: 1000px;
+  width: 50%;
   display: inline-block;
   vertical-align: baseline;
-  margin-left: 100px;
+  margin-left: 25%;
   text-align: left;
 `;
 

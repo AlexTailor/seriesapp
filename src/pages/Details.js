@@ -26,7 +26,7 @@ const Detail = () => {
         <Link
           onClick={() => addMain(main)}
           key={showId + "main"}
-          to={"/shows/" + showId + "/main"}
+          to={"/shows/" + showId}
         >
           Main
         </Link>{" "}
