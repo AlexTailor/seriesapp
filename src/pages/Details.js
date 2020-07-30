@@ -3,10 +3,10 @@ import { IdProviderContext } from "../contexts/IdProviderContext";
 import { DetailContext } from "../contexts/DetailProvider";
 import { useHttp } from "../hook/usehttp";
 import { Link } from "react-router-dom";
+import SubNavBar from "../components/SubNavBar";
 
 const Detail = () => {
   const { showId } = useContext(IdProviderContext);
-  const { addMain, addEpisodes, addCast } = useContext(DetailContext);
 
   const [isLoading, fetchedData] = useHttp(
     `http://api.tvmaze.com/shows/${showId}?embed[]=episodes&embed[]=cast`,
@@ -14,39 +14,11 @@ const Detail = () => {
   );
 
   const main = fetchedData ? fetchedData.data : [];
-  const episodes = fetchedData ? fetchedData.data._embedded.episodes : [];
-  const cast = fetchedData ? fetchedData.data._embedded.cast : [];
   const pic = fetchedData ? fetchedData.data.image : [];
-
-  console.log(main);
 
   return (
     <div className="mainCont">
-      <nav className="sub-nav">
-        <Link
-          onClick={() => addMain(main)}
-          key={showId + "main"}
-          to={"/shows/" + showId}
-        >
-          Main
-        </Link>{" "}
-        |
-        <Link
-          onClick={() => addEpisodes(episodes)}
-          key={showId + "episodes"}
-          to={"/shows/" + showId + "/episodes"}
-        >
-          Episodes
-        </Link>{" "}
-        |
-        <Link
-          onClick={() => addCast(cast)}
-          key={showId + "staff"}
-          to={"/shows/" + showId + "/staff"}
-        >
-          Staff
-        </Link>{" "}
-      </nav>
+      <SubNavBar />
       <br />
       <div className="details">
         <p>{main.name}</p>
