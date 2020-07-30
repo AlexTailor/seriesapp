@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../style/Style.css";
 
-export default function NavBar() {
+const NavBar = () => {
   return (
     <div>
       <header style={{ textAlign: "center" }}>
@@ -40,7 +40,7 @@ export default function NavBar() {
       </div>
     </header> */
   );
-}
+};
 
 const headerStyle = {
   background: "#333",
@@ -53,3 +53,5 @@ const linkStyle = {
   color: "#fff",
   textDecoration: "none",
 };
+
+export default NavBar;

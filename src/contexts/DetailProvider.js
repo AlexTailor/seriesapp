@@ -9,6 +9,7 @@ export function DetailProvider(props) {
   const addMain = (main) => {
     setMain({ main });
   };
+
   const addEpisodes = (episodes) => {
     setEpisodes({ episodes });
   };
