@@ -8,11 +8,13 @@ const Shows = (props) => {
 
   if (isLoading) {
     return (
-      <ul>
-        {shows.map((show, index) => (
-          <Card key={show.id} index={index} show={show} />
-        ))}
-      </ul>
+      <div className="mainCont">
+        <div className="box">
+          {shows.map((show, index) => (
+            <Card key={show.id} index={index} show={show} />
+          ))}
+        </div>
+      </div>
     );
   }
 };

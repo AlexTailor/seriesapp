@@ -21,30 +21,32 @@ const Detail = () => {
   console.log(main);
 
   return (
-    <div className="container">
-      <Link
-        onClick={() => addMain(main)}
-        key={showId + "main"}
-        to={"/shows/" + showId + "/main"}
-      >
-        Main
-      </Link>{" "}
-      |
-      <Link
-        onClick={() => addEpisodes(episodes)}
-        key={showId + "episodes"}
-        to={"/shows/" + showId + "/episodes"}
-      >
-        Episodes
-      </Link>{" "}
-      |
-      <Link
-        onClick={() => addCast(cast)}
-        key={showId + "staff"}
-        to={"/shows/" + showId + "/staff"}
-      >
-        Staff
-      </Link>{" "}
+    <div className="mainCont">
+      <nav className="sub-nav">
+        <Link
+          onClick={() => addMain(main)}
+          key={showId + "main"}
+          to={"/shows/" + showId + "/main"}
+        >
+          Main
+        </Link>{" "}
+        |
+        <Link
+          onClick={() => addEpisodes(episodes)}
+          key={showId + "episodes"}
+          to={"/shows/" + showId + "/episodes"}
+        >
+          Episodes
+        </Link>{" "}
+        |
+        <Link
+          onClick={() => addCast(cast)}
+          key={showId + "staff"}
+          to={"/shows/" + showId + "/staff"}
+        >
+          Staff
+        </Link>{" "}
+      </nav>
       <br />
       <div className="details">
         <p>{main.name}</p>

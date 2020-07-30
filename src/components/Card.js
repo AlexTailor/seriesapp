@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { IdProviderContext } from "../contexts/IdProviderContext";
+import "../style/Style.css";
 
 const CardStyle = styled.div`
   background-color: #add8e6;
@@ -17,22 +18,35 @@ const Card = (props) => {
   const { setshowId } = useContext(IdProviderContext);
 
   return (
-    <CardStyle>
-      <p>{props.show.name}</p>
-      <br />
-      <img
-        style={{ width: "100%" }}
-        src={props.show.image.medium}
-        alt={props.show.name}
-      />
-      <br />
-      <Link
-        onClick={() => setshowId(props.show.id)}
-        to={"/shows/" + props.show.id}
-      >
-        Details
-      </Link>
-    </CardStyle>
+    <section className="main-container">
+      <div className="location" id="home">
+        <div className="box">
+          <Link
+            onClick={() => setshowId(props.show.id)}
+            to={"/shows/" + props.show.id}
+          >
+            <img src={props.show.image.medium} alt={props.show.name} />
+          </Link>
+        </div>
+      </div>
+    </section>
+
+    // <CardStyle>
+    //   <p>{props.show.name}</p>
+    //   <br />
+    //   <img
+    //     style={{ width: "100%" }}
+    //     src={props.show.image.medium}
+    //     alt={props.show.name}
+    //   />
+    //   <br />
+    //   <Link
+    //     onClick={() => setshowId(props.show.id)}
+    //     to={"/shows/" + props.show.id}
+    //   >
+    //     Details
+    //   </Link>
+    // </CardStyle></CardStyle>
   );
 };
 
