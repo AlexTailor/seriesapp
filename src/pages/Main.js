@@ -4,5 +4,5 @@ import { DetailContext } from "../contexts/DetailProvider";
 export default function Main() {
   const { main } = useContext(DetailContext);
 
-  return <div>{main.summary}</div>;
+  return <div>{main.main.name}</div>;
 }
