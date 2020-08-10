@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const SubNavBar = () => {
   const { showId } = useContext(IdProviderContext);
   const { addMain, addEpisodes, addCast } = useContext(DetailContext);
-
+  // delegate these fetch calls to Context level and export functions
   const [isLoading, fetchedData] = useHttp(
     `http://api.tvmaze.com/shows/${showId}?embed[]=episodes&embed[]=cast`,
     []

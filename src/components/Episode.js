@@ -42,12 +42,4 @@ const Episode = (props) => {
   );
 };
 
-{
-  /* <div>
-      <p>{props.episode.name}</p>
-      <img alt={props.episode.name} src={props.episode.image.medium} />
-      {props.episode.summary}
-    </div> */
-}
-
-export default Episode;
+export default React.memo(Episode);

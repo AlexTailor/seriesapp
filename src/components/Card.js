@@ -14,6 +14,10 @@ const CardStyle = styled.div`
   text-align: center;
 `;
 
+const Root = styled.div`
+  display: flex;
+`;
+
 const Card = (props) => {
   const { setshowId } = useContext(IdProviderContext);
 

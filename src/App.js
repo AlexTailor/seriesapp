@@ -16,17 +16,17 @@ function App() {
     <IdProvider>
       <Router>
         <div className="App">
-          <NavBar />
-          <div className="container">
-            <Route exact path="/shows" component={Shows} />
-            <DetailProvider>
+          <DetailProvider>
+            <NavBar />
+            <div className="container">
+              <Route exact path="/shows" component={Shows} />
               <Route exact path="/shows/:id" component={Detail} />
               <Route exact path="/shows/:id/main" component={Main} />
               <Route exact path="/shows/:id/episodes" component={Episodes} />
               <Route exact path="/shows/:id/staff" component={Staff} />
               <Route exact path="/" component={Home} />
-            </DetailProvider>
-          </div>
+            </div>
+          </DetailProvider>
         </div>
       </Router>
     </IdProvider>
