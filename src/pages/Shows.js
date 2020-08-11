@@ -3,9 +3,6 @@ import Card from "../components/Card";
 import { DetailContext } from "../contexts/DetailProvider";
 
 const Shows = (props) => {
-  // const [isLoading, fetchedData] = useHttp("https://api.tvmaze.com/shows", []);
-  // const shows = fetchedData ? fetchedData.data : [];
-
   const { series } = useContext(DetailContext);
 
   return (

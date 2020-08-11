@@ -20,6 +20,10 @@ export function DetailProvider(props) {
     });
   };
 
+  // const fetchSeries = () => {
+  //   fetchSeriesApi().then((data) => console.log(data));
+  // };
+
   const fetchSeriesById = (id) => {
     fetchSeriesByIdApi(id).then((data1) => setMain(data1.data));
   };

@@ -11,6 +11,7 @@ const Staff = () => {
       <br />
       <br />
       <br />
+      <br />
       <SubNavBar /> <br />
       {cast.map((member, index) => (
         <Member key={member.person.id} index={index} member={member.person} />
