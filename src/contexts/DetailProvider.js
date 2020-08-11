@@ -29,7 +29,7 @@ export function DetailProvider(props) {
   };
 
   const fetchEpisodesById = (id) => {
-    fetchEpisodesByIdApi(id).then((data2) => setEpisodes(data2.data._embedded));
+    fetchEpisodesByIdApi(id).then((data2) => setEpisodes(data2.data));
   };
 
   const fetchStaffById = (id) => {
