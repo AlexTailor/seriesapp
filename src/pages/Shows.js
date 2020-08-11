@@ -10,6 +10,7 @@ const Shows = (props) => {
 
   return (
     <div className="mainCont">
+      <h1>hello</h1>
       <div className="box">
         {series.map((show, index) => (
           <Card key={show.id} index={index} show={show} />

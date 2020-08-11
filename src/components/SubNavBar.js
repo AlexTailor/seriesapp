@@ -6,22 +6,16 @@ import { Link } from "react-router-dom";
 
 const SubNavBar = () => {
   const { showId } = useContext(IdProviderContext);
-  const { addMain, addEpisodes, addCast } = useContext(DetailContext);
-  // delegate these fetch calls to Context level and export functions
-  const [isLoading, fetchedData] = useHttp(
-    `http://api.tvmaze.com/shows/${showId}?embed[]=episodes&embed[]=cast`,
-    []
+  const { fetchSeriesById, fetchEpisodesById, fetchStaffById } = useContext(
+    DetailContext
   );
-
-  const main = fetchedData ? fetchedData.data : [];
-  const episodes = fetchedData ? fetchedData.data._embedded.episodes : [];
-  const cast = fetchedData ? fetchedData.data._embedded.cast : [];
+  // delegate these fetch calls to Context level and export functions
 
   return (
     <div>
       <nav className="sub-nav">
         <Link
-          onClick={() => addMain(main)}
+          onClick={() => fetchSeriesById(showId)}
           key={showId + "main"}
           to={"/shows/" + showId}
         >
@@ -29,7 +23,7 @@ const SubNavBar = () => {
         </Link>{" "}
         |
         <Link
-          onClick={() => addEpisodes(episodes)}
+          onClick={() => fetchEpisodesById(showId)}
           key={showId + "episodes"}
           to={"/shows/" + showId + "/episodes"}
         >
@@ -37,7 +31,7 @@ const SubNavBar = () => {
         </Link>{" "}
         |
         <Link
-          onClick={() => addCast(cast)}
+          onClick={() => fetchStaffById(showId)}
           key={showId + "staff"}
           to={"/shows/" + showId + "/staff"}
         >

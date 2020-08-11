@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 import SubNavBar from "../components/SubNavBar";
 
 const Detail = () => {
-  const { showId } = useContext(IdProviderContext);
+  const { main } = useContext(DetailContext);
 
-  const [isLoading, fetchedData] = useHttp(
-    `http://api.tvmaze.com/shows/${showId}?embed[]=episodes&embed[]=cast`,
-    []
-  );
+  // const [isLoading, fetchedData] = useHttp(
+  //   `http://api.tvmaze.com/shows/${showId}?embed[]=episodes&embed[]=cast`,
+  //   []
+  // );
 
-  const main = fetchedData ? fetchedData.data : [];
-  const pic = fetchedData ? fetchedData.data.image : [];
+  // const main = fetchedData ? fetchedData.data : [];
+  const pic = main.image ? main.image : [];
 
   return (
     <div className="mainCont">

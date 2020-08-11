@@ -5,7 +5,7 @@ import SubNavBar from "../components/SubNavBar";
 
 const Episodes = () => {
   const { episodes } = useContext(DetailContext);
-
+  console.log(episodes);
   return (
     <div className="mainCont">
       <SubNavBar />

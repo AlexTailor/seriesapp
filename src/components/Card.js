@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { IdProviderContext } from "../contexts/IdProviderContext";
 import "../style/Style.css";
+import { DetailContext } from "../contexts/DetailProvider";
 
 const CardStyle = styled.div`
   background-color: #add8e6;
@@ -19,7 +20,8 @@ const Root = styled.div`
 `;
 
 const Card = (props) => {
-  const { setshowId } = useContext(IdProviderContext);
+  const { id, setshowId } = useContext(IdProviderContext);
+  const { fetchSeriesById } = useContext(DetailContext);
 
   return (
     <section className="main-container">

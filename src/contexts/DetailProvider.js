@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { fetchSeriesApi } from "../api/apiCalls";
+import {
+  fetchSeriesApi,
+  fetchSeriesByIdApi,
+  fetchEpisodesByIdApi,
+  fetchStaffByIdApi,
+} from "../api/apiCalls";
 
 export const DetailContext = React.createContext();
 
@@ -8,23 +13,25 @@ export function DetailProvider(props) {
   const [main, setMain] = useState([]);
   const [episodes, setEpisodes] = useState([]);
   const [cast, setCast] = useState([]);
-  const addMain = (main) => {
-    setMain({ main });
-  };
 
   const fetchSeries = () => {
-    fetchSeriesApi.then((data) => setSeries());
+    fetchSeriesApi().then((data) => {
+      setSeries(data.data);
+    });
   };
 
   const fetchSeriesById = (id) => {
-    fetchSeriesById(id).then((data) => setMain());
+    fetchSeriesByIdApi(id).then((data1) => setMain(data1.data));
   };
 
-  const addEpisodes = (episodes) => {
-    setEpisodes({ episodes });
+  const fetchEpisodesById = (id) => {
+    fetchEpisodesByIdApi(id).then((data2) =>
+      setEpisodes(data2.data._embedded.episodes)
+    );
   };
-  const addCast = (cast) => {
-    setCast({ cast });
+
+  const fetchStaffById = (id) => {
+    fetchStaffByIdApi(id).then((data3) => setCast(data3._embedded.cast));
   };
 
   return (
@@ -33,11 +40,11 @@ export function DetailProvider(props) {
         series,
         fetchSeries,
         main,
-        addMain,
+        fetchSeriesById,
         episodes,
-        addEpisodes,
+        fetchEpisodesById,
         cast,
-        addCast,
+        fetchStaffById,
       }}
     >
       {props.children}
