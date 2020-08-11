@@ -1,6 +1,5 @@
 import React from "react";
 import "../style/Style.css";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const CardStyle = styled.div`

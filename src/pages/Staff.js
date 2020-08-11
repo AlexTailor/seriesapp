@@ -9,10 +9,10 @@ const Staff = () => {
   return (
     <div>
       <br />
-      <h1>Hello</h1>
+      <br />
       <br />
       <SubNavBar /> <br />
-      {cast.cast.map((member, index) => (
+      {cast.map((member, index) => (
         <Member key={member.person.id} index={index} member={member.person} />
       ))}
     </div>

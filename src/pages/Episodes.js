@@ -5,12 +5,13 @@ import SubNavBar from "../components/SubNavBar";
 
 const Episodes = () => {
   const { episodes } = useContext(DetailContext);
-  console.log(episodes);
+
+  const episodesforseries = episodes.episodes ? episodes.episodes : [];
   return (
     <div className="mainCont">
       <SubNavBar />
       <div>
-        {episodes.episodes.map((episode, index) => (
+        {episodesforseries.map((episode, index) => (
           <Episode key={episode.id} index={index} episode={episode} />
         ))}
       </div>

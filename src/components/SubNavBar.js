@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { IdProviderContext } from "../contexts/IdProviderContext";
 import { DetailContext } from "../contexts/DetailProvider";
-import { useHttp } from "../hook/usehttp";
 import { Link } from "react-router-dom";
 
 const SubNavBar = () => {

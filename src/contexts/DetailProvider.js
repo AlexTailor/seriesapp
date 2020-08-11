@@ -25,13 +25,11 @@ export function DetailProvider(props) {
   };
 
   const fetchEpisodesById = (id) => {
-    fetchEpisodesByIdApi(id).then((data2) =>
-      setEpisodes(data2.data._embedded.episodes)
-    );
+    fetchEpisodesByIdApi(id).then((data2) => setEpisodes(data2.data._embedded));
   };
 
   const fetchStaffById = (id) => {
-    fetchStaffByIdApi(id).then((data3) => setCast(data3._embedded.cast));
+    fetchStaffByIdApi(id).then((data3) => setCast(data3.data._embedded.cast));
   };
 
   return (

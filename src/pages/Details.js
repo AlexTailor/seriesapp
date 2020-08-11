@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 import { IdProviderContext } from "../contexts/IdProviderContext";
 import { DetailContext } from "../contexts/DetailProvider";
-import { useHttp } from "../hook/usehttp";
-import { Link } from "react-router-dom";
 import SubNavBar from "../components/SubNavBar";
 
 const Detail = () => {
-  const { main } = useContext(DetailContext);
+  const { main, fetchSeriesById } = useContext(DetailContext);
+  const { showId } = useContext(IdProviderContext);
+  fetchSeriesById(showId);
+
+  //
 
   // const [isLoading, fetchedData] = useHttp(
   //   `http://api.tvmaze.com/shows/${showId}?embed[]=episodes&embed[]=cast`,
