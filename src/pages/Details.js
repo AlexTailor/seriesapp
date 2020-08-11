@@ -8,14 +8,15 @@ const Detail = () => {
   const { showId } = useContext(IdProviderContext);
   fetchSeriesById(showId);
 
-  //
+  const summary = main.summary
+    ? main.summary
+        .replace("<p>", "")
+        .replace("</p>", "")
+        .replace("<b>", "")
+        .replace("</b>", "")
+    : [];
+  // const finished = main.summary ? summary.replace("</p>", "") : [];
 
-  // const [isLoading, fetchedData] = useHttp(
-  //   `http://api.tvmaze.com/shows/${showId}?embed[]=episodes&embed[]=cast`,
-  //   []
-  // );
-
-  // const main = fetchedData ? fetchedData.data : [];
   const pic = main.image ? main.image : [];
 
   return (
@@ -30,7 +31,7 @@ const Detail = () => {
           <p>Status: {main.status}</p>
         </div>
         <img alt={main.name} src={pic.medium} />
-        <p>{main.summary}</p>
+        <p>{summary}</p>
       </div>
     </div>
   );
