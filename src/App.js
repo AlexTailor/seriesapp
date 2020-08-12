@@ -11,6 +11,7 @@ import "./App.css";
 import Episodes from "./pages/Episodes";
 import Staff from "./pages/Staff";
 import SearchResult from "./components/SearchResult";
+import SearchedShows from "./pages/SearchedShows";
 
 function App() {
   return (
@@ -23,8 +24,8 @@ function App() {
               <Route exact path="/shows" component={Shows} />
               <Route
                 exact
-                path="/show/search/:value"
-                component={SearchResult}
+                path="/shows/search/:value"
+                component={SearchedShows}
               />
               <Route exact path="/shows/:id" component={Detail} />
               <Route exact path="/shows/:id/main" component={Main} />

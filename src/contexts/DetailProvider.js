@@ -15,6 +15,7 @@ export function DetailProvider(props) {
   const [episodes, setEpisodes] = useState([]);
   const [cast, setCast] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
+  const [inputValue, setInputValue] = useState([]);
 
   const fetchSeries = () => {
     fetchSeriesApi().then((data) => {
@@ -35,7 +36,7 @@ export function DetailProvider(props) {
   };
 
   const fetchStaffById = (id) => {
-    fetchStaffByIdApi(id).then((data3) => setCast(data3.data._embedded.cast));
+    fetchStaffByIdApi(id).then((data3) => setCast(data3.data));
   };
 
   const fetchSearchBySearchValue = (value) => {
@@ -57,6 +58,8 @@ export function DetailProvider(props) {
         fetchStaffById,
         searchValue,
         fetchSearchBySearchValue,
+        inputValue,
+        setInputValue,
       }}
     >
       {props.children}

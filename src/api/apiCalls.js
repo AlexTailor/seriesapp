@@ -19,3 +19,7 @@ export const fetchStaffByIdApi = async (id) => {
 export const fetchSearchBySearchValueApi = async (value) => {
   return await axios.get(`http://localhost:8080/shows/searchresult/${value}`);
 };
+
+export const fetchPersonsApi = async () => {
+  return await axios.get(``);
+};
