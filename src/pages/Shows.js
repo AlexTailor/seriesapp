@@ -1,20 +1,22 @@
 import React, { useContext } from "react";
 import Card from "../components/Card";
 import { DetailContext } from "../contexts/DetailProvider";
+import { Link } from "react-router-dom";
 
 const Shows = (props) => {
-  const { series, fetchSearchBySearchValue } = useContext(DetailContext);
+  const { series, searchValue, fetchSearchBySearchValue } = useContext(
+    DetailContext
+  );
 
   const getValue = (e) => {
     fetchSearchBySearchValue(e.target.value);
-    return e.target.value;
   };
 
   return (
     <div className="mainCont">
       <form>
-        <input type="text" value={text} onChange={getValue} />
-        <Link to={"/show/search/" + getvalue}>
+        <input type="text" onChange={getValue} />
+        <Link to={"/show/search/" + searchValue}>
           <button onChange={getValue}>Search</button>
         </Link>
       </form>
