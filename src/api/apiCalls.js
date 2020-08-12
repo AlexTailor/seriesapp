@@ -17,5 +17,9 @@ export const fetchEpisodesByIdApi = async (id) => {
 };
 
 export const fetchStaffByIdApi = async (id) => {
-  return await axios.get(`http://api.tvmaze.com/shows/${id}?embed[]=cast`);
+  return await axios.get(`http://localhost:8080/shows/${id}/staff`);
+};
+
+export const fetchSearchBySearchValueApi = async (value) => {
+  return await axios.get(`http://localhost:8080/shows/searchresult/${value}`);
 };

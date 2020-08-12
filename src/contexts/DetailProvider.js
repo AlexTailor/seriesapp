@@ -4,6 +4,7 @@ import {
   fetchSeriesByIdApi,
   fetchEpisodesByIdApi,
   fetchStaffByIdApi,
+  fetchSearchBySearchValueApi,
 } from "../api/apiCalls";
 
 export const DetailContext = React.createContext();
@@ -13,6 +14,7 @@ export function DetailProvider(props) {
   const [main, setMain] = useState([]);
   const [episodes, setEpisodes] = useState([]);
   const [cast, setCast] = useState([]);
+  const [searchValue, setSearchValue] = useState([]);
 
   const fetchSeries = () => {
     fetchSeriesApi().then((data) => {
@@ -36,6 +38,12 @@ export function DetailProvider(props) {
     fetchStaffByIdApi(id).then((data3) => setCast(data3.data._embedded.cast));
   };
 
+  const fetchSearchBySearchValue = (value) => {
+    fetchSearchBySearchValueApi(value).then((data) =>
+      setSearchValue(data.data)
+    );
+  };
+
   return (
     <DetailContext.Provider
       value={{
@@ -47,6 +55,8 @@ export function DetailProvider(props) {
         fetchEpisodesById,
         cast,
         fetchStaffById,
+        searchValue,
+        fetchSearchBySearchValue,
       }}
     >
       {props.children}
