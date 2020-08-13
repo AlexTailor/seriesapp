@@ -8,7 +8,6 @@ const Episodes = () => {
 
   const episodesforseries = episodes ? episodes : [];
 
-  console.log(episodes);
   return (
     <div className="mainCont">
       <SubNavBar />

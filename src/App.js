@@ -10,8 +10,9 @@ import { DetailProvider } from "./contexts/DetailProvider";
 import "./App.css";
 import Episodes from "./pages/Episodes";
 import Staff from "./pages/Staff";
-import SearchResult from "./components/SearchResult";
 import SearchedShows from "./pages/SearchedShows";
+import SearchedPeople from "./pages/SearchedPeople";
+import MainStaff from "./pages/MainStaff";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
                 path="/shows/search/:value"
                 component={SearchedShows}
               />
+              <Route exact path="/search/:name" component={SearchedPeople} />
+              <Route exact path="/staff" component={MainStaff} />
+
               <Route exact path="/shows/:id" component={Detail} />
               <Route exact path="/shows/:id/main" component={Main} />
               <Route exact path="/shows/:id/episodes" component={Episodes} />
