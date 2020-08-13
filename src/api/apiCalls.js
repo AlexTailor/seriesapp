@@ -27,3 +27,7 @@ export const fetchPersonsApi = async () => {
 export const fetchPersonsByNameApi = async (name) => {
   return await axios.get(`http://localhost:8080/staff/search/${name}`);
 };
+
+export const fetchPersonsByIdApi = async (id) => {
+  return await axios.get(`http://localhost:8080/staff/${id}`);
+};
