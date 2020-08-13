@@ -14,7 +14,7 @@ export default function StaffCard(props) {
         <div className="box">
           <Link
             onClick={() => setStaffId(props.staff.id)}
-            to={"staff/details/" + staffId}
+            to={"/staff/details/" + staffId}
           >
             <img src={pic} alt={props.staff.name} />
           </Link>
