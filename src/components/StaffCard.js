@@ -4,7 +4,7 @@ import { IdProviderContext } from "../contexts/IdProviderContext";
 import noImage from "../picture/noImage.jpg";
 
 export default function StaffCard(props) {
-  const { setStaffId, staffId } = useContext(IdProviderContext);
+  const { setStaffId } = useContext(IdProviderContext);
   const pic = props.staff.image ? props.staff.image.medium : noImage;
 
   return (
@@ -14,7 +14,7 @@ export default function StaffCard(props) {
         <div className="box">
           <Link
             onClick={() => setStaffId(props.staff.id)}
-            to={"/staff/details/" + staffId}
+            to={"/staff/details/" + props.staff.id}
           >
             <img src={pic} alt={props.staff.name} />
           </Link>

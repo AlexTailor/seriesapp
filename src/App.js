@@ -13,6 +13,7 @@ import Staff from "./pages/Staff";
 import SearchedShows from "./pages/SearchedShows";
 import SearchedPeople from "./pages/SearchedPeople";
 import MainStaff from "./pages/MainStaff";
+import StaffDetails from "./pages/StaffDetails";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
                 path="/shows/search/:value"
                 component={SearchedShows}
               />
+              <Route exact path="/staff/details/:id" component={StaffDetails} />
               <Route exact path="/search/:name" component={SearchedPeople} />
               <Route exact path="/staff" component={MainStaff} />
 

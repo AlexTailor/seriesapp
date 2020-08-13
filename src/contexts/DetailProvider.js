@@ -7,6 +7,8 @@ import {
   fetchSearchBySearchValueApi,
   fetchPersonsApi,
   fetchPersonsByNameApi,
+  fetchPersonsByIdApi,
+  fetchCastCreditsByIdApi,
 } from "../api/apiCalls";
 
 export const DetailContext = React.createContext();
@@ -21,6 +23,8 @@ export function DetailProvider(props) {
   const [inputName, setInputName] = useState([]);
   const [randomStaff, setRandomStaff] = useState([]);
   const [searchedPersons, setSearchedPersons] = useState([]);
+  const [personDetail, setPersonDetail] = useState([]);
+  const [personCastCredit, setPersonCastCredit] = useState([]);
 
   const fetchSeries = () => {
     fetchSeriesApi().then((data) => {
@@ -56,6 +60,16 @@ export function DetailProvider(props) {
     fetchPersonsByNameApi(name).then((data) => setSearchedPersons(data.data));
   };
 
+  const fetchPersonsById = (staffId) => {
+    fetchPersonsByIdApi(staffId).then((data) => setPersonDetail(data.data));
+  };
+
+  const fetchCastCreditsById = (staffId) => {
+    fetchCastCreditsByIdApi(staffId).then((data) =>
+      setPersonCastCredit(data.data)
+    );
+  };
+
   return (
     <DetailContext.Provider
       value={{
@@ -77,6 +91,10 @@ export function DetailProvider(props) {
         fetchPersonsByName,
         inputName,
         setInputName,
+        personDetail,
+        fetchPersonsById,
+        personCastCredit,
+        fetchCastCreditsById,
       }}
     >
       {props.children}
