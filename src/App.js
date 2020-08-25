@@ -27,7 +27,7 @@ function App() {
             <NavBar />
             <div className="container">
               <Route exact path="/shows" component={Shows} />
-              <Route exact path="/shows/favorites" component={Favorites} />
+              <Route exact path="/favorites" component={Favorites} />
               <Route
                 exact
                 path="/shows/search/:value"

@@ -20,7 +20,7 @@ const NavBar = () => {
             Staff
           </Link>
           <Link to="/channels">Channels</Link>
-          <Link onClick={() => fetchFavorite()} to="/shows/favorites">
+          <Link onClick={() => fetchFavorite()} to="/favorites">
             Favorites
           </Link>
         </nav>
