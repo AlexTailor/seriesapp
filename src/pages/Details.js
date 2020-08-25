@@ -19,8 +19,10 @@ const Detail = () => {
 
   const pic = main.image ? main.image : [];
 
-  fetch = async (id) => {
-    await axios.post("http://localhost:8080/shows/firstPost", { id: showId });
+  const postData = () => {
+    axios.post("http://localhost:8080/shows/firstPost", {
+      showId: showId,
+    });
   };
 
   return (
@@ -35,7 +37,7 @@ const Detail = () => {
           <p>Status: {main.status}</p>
         </div>
         <img alt={main.name} src={pic.medium} />
-        <button type="submit" onClick={fetch}>
+        <button type="submit" onClick={postData}>
           {" "}
           Favourite{" "}
         </button>

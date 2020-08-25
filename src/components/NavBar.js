@@ -4,7 +4,9 @@ import "../style/Style.css";
 import { DetailContext } from "../contexts/DetailProvider";
 
 const NavBar = () => {
-  const { fetchSeries, fetchPersons } = useContext(DetailContext);
+  const { fetchSeries, fetchPersons, fetchFavorite } = useContext(
+    DetailContext
+  );
 
   return (
     <div>
@@ -18,7 +20,9 @@ const NavBar = () => {
             Staff
           </Link>
           <Link to="/channels">Channels</Link>
-          <Link to="/#">Web Channels</Link>
+          <Link onClick={() => fetchFavorite()} to="/shows/favorites">
+            Favorites
+          </Link>
         </nav>
       </header>
     </div>

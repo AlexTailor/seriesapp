@@ -16,6 +16,7 @@ import MainStaff from "./pages/MainStaff";
 import StaffDetails from "./pages/StaffDetails";
 import Seasons from "./pages/Seasons";
 import SeasonEpisodes from "./pages/SeasonEpisodes";
+import Favorites from "./pages/Favorites";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <NavBar />
             <div className="container">
               <Route exact path="/shows" component={Shows} />
+              <Route exact path="/shows/favorites" component={Favorites} />
               <Route
                 exact
                 path="/shows/search/:value"

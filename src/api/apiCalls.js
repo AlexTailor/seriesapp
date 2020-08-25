@@ -49,3 +49,7 @@ export const fetchSeasonEpisodeApi = async (id, num) => {
     `http://localhost:8080/shows/${id}/season/${num}/episode`
   );
 };
+
+export const fetchFavoriteApi = async () => {
+  return await axios.get(`http://localhost:8080/shows/favourites`);
+};

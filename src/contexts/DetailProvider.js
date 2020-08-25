@@ -11,6 +11,7 @@ import {
   fetchCastCreditsByIdApi,
   fetchSeasonsByIdApi,
   fetchSeasonEpisodeApi,
+  fetchFavoriteApi,
 } from "../api/apiCalls";
 
 export const DetailContext = React.createContext();
@@ -81,6 +82,10 @@ export function DetailProvider(props) {
     fetchSeasonsByIdApi(id).then((data) => setSeasons(data.data));
   };
 
+  const fetchFavorite = (id) => {
+    fetchFavoriteApi().then((data) => setSeries(data.data));
+  };
+
   return (
     <DetailContext.Provider
       value={{
@@ -109,6 +114,7 @@ export function DetailProvider(props) {
         seasons,
         fetchSeasonsById,
         fetchSeasonEpisode,
+        fetchFavorite,
       }}
     >
       {props.children}
