@@ -15,7 +15,6 @@ const Detail = () => {
         .replace("<b>", "")
         .replace("</b>", "")
     : [];
-  // const finished = main.summary ? summary.replace("</p>", "") : [];
 
   const pic = main.image ? main.image : [];
 
@@ -31,6 +30,7 @@ const Detail = () => {
           <p>Status: {main.status}</p>
         </div>
         <img alt={main.name} src={pic.medium} />
+        <button type="submit"> Favourite </button>
         <p>{summary}</p>
       </div>
     </div>
