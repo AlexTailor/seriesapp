@@ -11,7 +11,7 @@ export default function StaffCard(props) {
     <section className="main-container">
       <h3>{props.staff.name}</h3>
       <div className="location" id="home">
-        <div className="box">
+        <div className="mbox">
           <Link
             onClick={() => setStaffId(props.staff.id)}
             to={"/staff/details/" + props.staff.id}

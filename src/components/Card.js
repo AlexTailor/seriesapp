@@ -9,7 +9,7 @@ const Card = (props) => {
   return (
     <section className="main-container">
       <div className="location" id="home">
-        <div className="box">
+        <div className="mbox">
           <Link
             onClick={() => setshowId(props.show.id)}
             to={"/shows/" + props.show.id}

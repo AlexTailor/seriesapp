@@ -5,9 +5,12 @@ import { Link } from "react-router-dom";
 
 const SubNavBar = () => {
   const { showId } = useContext(IdProviderContext);
-  const { fetchSeriesById, fetchEpisodesById, fetchStaffById } = useContext(
-    DetailContext
-  );
+  const {
+    fetchSeriesById,
+    fetchEpisodesById,
+    fetchStaffById,
+    fetchSeasonsById,
+  } = useContext(DetailContext);
   // delegate these fetch calls to Context level and export functions
 
   return (
@@ -19,6 +22,14 @@ const SubNavBar = () => {
           to={"/shows/" + showId}
         >
           Main
+        </Link>{" "}
+        |
+        <Link
+          onClick={() => fetchSeasonsById(showId)}
+          key={showId + "seasons"}
+          to={"/shows/" + showId + "/seasons"}
+        >
+          Seasons
         </Link>{" "}
         |
         <Link

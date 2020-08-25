@@ -9,6 +9,8 @@ import {
   fetchPersonsByNameApi,
   fetchPersonsByIdApi,
   fetchCastCreditsByIdApi,
+  fetchSeasonsByIdApi,
+  fetchSeasonEpisodeApi,
 } from "../api/apiCalls";
 
 export const DetailContext = React.createContext();
@@ -25,6 +27,7 @@ export function DetailProvider(props) {
   const [searchedPersons, setSearchedPersons] = useState([]);
   const [personDetail, setPersonDetail] = useState([]);
   const [personCastCredit, setPersonCastCredit] = useState([]);
+  const [seasons, setSeasons] = useState([]);
 
   const fetchSeries = () => {
     fetchSeriesApi().then((data) => {
@@ -44,6 +47,10 @@ export function DetailProvider(props) {
 
   const fetchEpisodesById = (id) => {
     fetchEpisodesByIdApi(id).then((data2) => setEpisodes(data2.data));
+  };
+
+  const fetchSeasonEpisode = (id, num) => {
+    fetchSeasonEpisodeApi(id, num).then((data2) => setEpisodes(data2.data));
   };
 
   const fetchStaffById = (id) => {
@@ -68,6 +75,10 @@ export function DetailProvider(props) {
     fetchCastCreditsByIdApi(staffId).then((data) =>
       setPersonCastCredit(data.data)
     );
+  };
+
+  const fetchSeasonsById = (id) => {
+    fetchSeasonsByIdApi(id).then((data) => setSeasons(data.data));
   };
 
   return (
@@ -95,6 +106,9 @@ export function DetailProvider(props) {
         fetchPersonsById,
         personCastCredit,
         fetchCastCreditsById,
+        seasons,
+        fetchSeasonsById,
+        fetchSeasonEpisode,
       }}
     >
       {props.children}

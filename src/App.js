@@ -14,6 +14,8 @@ import SearchedShows from "./pages/SearchedShows";
 import SearchedPeople from "./pages/SearchedPeople";
 import MainStaff from "./pages/MainStaff";
 import StaffDetails from "./pages/StaffDetails";
+import Seasons from "./pages/Seasons";
+import SeasonEpisodes from "./pages/SeasonEpisodes";
 
 function App() {
   return (
@@ -32,10 +34,15 @@ function App() {
               <Route exact path="/staff/details/:id" component={StaffDetails} />
               <Route exact path="/search/:name" component={SearchedPeople} />
               <Route exact path="/staff" component={MainStaff} />
-
+              <Route exact path="/shows/:id/seasons" component={Seasons} />
               <Route exact path="/shows/:id" component={Detail} />
               <Route exact path="/shows/:id/main" component={Main} />
               <Route exact path="/shows/:id/episodes" component={Episodes} />
+              <Route
+                exact
+                path="/shows/:id/seasonepisodes"
+                component={SeasonEpisodes}
+              />
               <Route exact path="/shows/:id/staff" component={Staff} />
               <Route exact path="/" component={Home} />
             </div>
