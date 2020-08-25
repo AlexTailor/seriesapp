@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { IdProviderContext } from "../contexts/IdProviderContext";
 import { DetailContext } from "../contexts/DetailProvider";
 import SubNavBar from "../components/SubNavBar";
+import axios from "axios";
 
 const Detail = () => {
   const { main, fetchSeriesById } = useContext(DetailContext);
@@ -18,6 +19,10 @@ const Detail = () => {
 
   const pic = main.image ? main.image : [];
 
+  fetch = async (id) => {
+    await axios.post("http://localhost:8080/shows/firstPost", { id: showId });
+  };
+
   return (
     <div className="mainCont">
       <SubNavBar />
@@ -30,7 +35,10 @@ const Detail = () => {
           <p>Status: {main.status}</p>
         </div>
         <img alt={main.name} src={pic.medium} />
-        <button type="submit"> Favourite </button>
+        <button type="submit" onClick={fetch}>
+          {" "}
+          Favourite{" "}
+        </button>
         <p>{summary}</p>
       </div>
     </div>
