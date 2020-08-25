@@ -1,35 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import "../style/Style.css";
+import { DetailContext } from "../contexts/DetailProvider";
 
-export default function NavBar() {
+const NavBar = () => {
+  const { fetchSeries, fetchPersons } = useContext(DetailContext);
+
   return (
-    <header style={headerStyle}>
-      <div className="NavBar">
-        <h1>TV Series</h1>
-        <Link style={linkStyle} to="/shows">
-          Shows
-        </Link>{" "}
-        |{" "}
-        <Link style={linkStyle} to="/staff">
-          Staff
-        </Link>{" "}
-        |{" "}
-        <Link style={linkStyle} to="/channels">
-          Channels
-        </Link>
-      </div>
-    </header>
+    <div>
+      <header style={{ textAlign: "center" }}>
+        <nav className="main-nav">
+          <Link to="/">Home</Link>
+          <Link to="/shows" onClick={() => fetchSeries()}>
+            TV Series
+          </Link>
+          <Link to="/staff" onClick={() => fetchPersons()}>
+            Staff
+          </Link>
+          <Link to="/channels">Channels</Link>
+          <Link to="/#">Web Channels</Link>
+        </nav>
+      </header>
+    </div>
   );
-}
-
-const headerStyle = {
-  background: "#333",
-  color: "#fff",
-  textAlign: "center",
-  padding: "10px",
 };
-
-const linkStyle = {
-  color: "#fff",
-  textDecoration: "none",
-};
+export default NavBar;

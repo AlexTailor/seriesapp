@@ -1,20 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "../components/Card";
-import { useHttp } from "../hook/usehttp";
+import { DetailContext } from "../contexts/DetailProvider";
+import { Link } from "react-router-dom";
 
 const Shows = (props) => {
-  const [isLoading, fetchedData] = useHttp("https://api.tvmaze.com/shows", []);
-  const shows = fetchedData ? fetchedData.data : [];
+  const {
+    series,
+    inputValue,
+    setInputValue,
+    fetchSearchBySearchValue,
+  } = useContext(DetailContext);
 
-  if (isLoading) {
-    return (
-      <ul>
-        {shows.map((show, index) => (
+  const getValue = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const getInput = (e) => {
+    fetchSearchBySearchValue(inputValue);
+  };
+
+  return (
+    <div className="mainCont">
+      <form>
+        <input type="text" onChange={getValue} />
+        <Link to={"/shows/search/" + inputValue}>
+          <button onClick={getInput}>Search</button>
+        </Link>
+      </form>
+      <div className="box">
+        {series.map((show, index) => (
           <Card key={show.id} index={index} show={show} />
         ))}
-      </ul>
-    );
-  }
+      </div>
+    </div>
+  );
 };
 
 export default React.memo(Shows);
