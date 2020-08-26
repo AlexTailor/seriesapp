@@ -17,6 +17,7 @@ const Detail = () => {
         .replace("</b>", "")
     : [];
   const pic = main.image ? main.image : [];
+  const rating = main.rating ? main.rating : [];
 
   const postData = () => {
     axios.post("http://localhost:8080/shows/firstPost", {
@@ -34,6 +35,7 @@ const Detail = () => {
           <p>Genres: {main.genres}</p>
           <p>Type: {main.type}</p>
           <p>Status: {main.status}</p>
+          <p>Rating: {rating.average}</p>
         </div>
         <img alt={main.name} src={pic.medium} />
         <button type="submit" onClick={postData}>
