@@ -20,8 +20,8 @@ export const fetchSearchBySearchValueApi = async (value) => {
   return await axios.get(`http://localhost:8080/shows/searchresult/${value}`);
 };
 
-export const fetchPersonsApi = async () => {
-  return await axios.get("http://localhost:8080/staff");
+export const fetchPersonsApi = async (page) => {
+  return await axios.get(`http://localhost:8080/staff/page/${page}`);
 };
 
 export const fetchPersonsByNameApi = async (name) => {

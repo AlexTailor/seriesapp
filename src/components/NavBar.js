@@ -16,7 +16,7 @@ const NavBar = () => {
           <Link to="/shows" onClick={() => fetchSeries()}>
             TV Series
           </Link>
-          <Link to="/staff" onClick={() => fetchPersons()}>
+          <Link to="/staff" onClick={() => fetchPersons("first")}>
             Staff
           </Link>
           <Link to="/channels">Channels</Link>

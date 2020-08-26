@@ -36,8 +36,8 @@ export function DetailProvider(props) {
     });
   };
 
-  const fetchPersons = () => {
-    fetchPersonsApi().then((data) => {
+  const fetchPersons = (page) => {
+    fetchPersonsApi(page).then((data) => {
       setRandomStaff(data.data);
     });
   };

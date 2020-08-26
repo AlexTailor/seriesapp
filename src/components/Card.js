@@ -5,7 +5,7 @@ import "../style/Style.css";
 
 const Card = (props) => {
   const { setshowId } = useContext(IdProviderContext);
-
+  console.log("ez is?");
   return (
     <section className="main-container">
       <div className="location" id="home">

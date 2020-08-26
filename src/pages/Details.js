@@ -16,7 +16,6 @@ const Detail = () => {
         .replace("<b>", "")
         .replace("</b>", "")
     : [];
-
   const pic = main.image ? main.image : [];
 
   const postData = () => {

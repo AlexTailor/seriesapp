@@ -26,7 +26,6 @@ function App() {
           <DetailProvider>
             <NavBar />
             <div className="container">
-              <Route exact path="/shows" component={Shows} />
               <Route exact path="/favorites" component={Favorites} />
               <Route
                 exact
@@ -46,6 +45,7 @@ function App() {
                 component={SeasonEpisodes}
               />
               <Route exact path="/shows/:id/staff" component={Staff} />
+              <Route exact path="/shows" component={Shows} />
               <Route exact path="/" component={Home} />
             </div>
           </DetailProvider>

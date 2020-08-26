@@ -9,7 +9,10 @@ export default function MainStaff() {
     inputName,
     setInputName,
     fetchPersonsByName,
+    fetchPersons,
   } = useContext(DetailContext);
+
+  console.log("hello");
 
   const getName = (e) => {
     setInputName(e.target.value);
@@ -27,6 +30,8 @@ export default function MainStaff() {
             <button onClick={getInput}>Search</button>
           </Link>
         </form>
+        <button onClick={() => fetchPersons("prev")}>previous</button>{" "}
+        <button onClick={() => fetchPersons("next")}>next</button>
         <div className="box">
           {randomStaff.map((staff, index) => (
             <StaffCard key={staff.id} index={index} staff={staff} />

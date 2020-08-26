@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { IdProviderContext } from "../contexts/IdProviderContext";
 import { DetailContext } from "../contexts/DetailProvider";
 
-export default function StaffDetails() {
+function StaffDetails() {
   const { staffId } = useContext(IdProviderContext);
   const {
     fetchPersonsById,
@@ -30,3 +30,5 @@ export default function StaffDetails() {
     </div>
   );
 }
+
+export default React.memo(StaffDetails);
