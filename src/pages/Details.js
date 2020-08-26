@@ -17,24 +17,31 @@ const Detail = () => {
         .replace("</b>", "")
     : [];
   const pic = main.image ? main.image : [];
-  const rating = main.rating ? main.rating : [];
+  let rating = main.rating ? main.rating.average : [];
 
   const postData = () => {
-    axios.post("http://localhost:8080/shows/firstPost", {
-      showId: showId,
-    });
+    axios
+      .post("http://localhost:8080/shows/firstPost", {
+        showId: showId,
+        seriesRating: rating,
+      })
+      .then((data) => (rating = data));
   };
 
   const postDownVote = () => {
-    axios.post("http://localhost:8080/shows/vote/down", {
-      showId: showId,
-    });
+    axios
+      .post("http://localhost:8080/shows/vote/down", {
+        showId: showId,
+        seriesRating: rating,
+      })
+      .then((data) => (rating = data));
   };
 
   const postUpVote = () => {
     axios
       .post("http://localhost:8080/shows/vote/up", {
         showId: showId,
+        seriesRating: rating,
       })
       .then((response) => console.log(response));
   };
@@ -49,7 +56,7 @@ const Detail = () => {
           <p>Genres: {main.genres}</p>
           <p>Type: {main.type}</p>
           <p>Status: {main.status}</p>
-          <p>Rating: {rating.average}</p>
+          <p>Rating: {rating}</p>
         </div>
         <img alt={main.name} src={pic.medium} />
         <button type="submit" onClick={postData}>
