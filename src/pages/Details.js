@@ -25,6 +25,20 @@ const Detail = () => {
     });
   };
 
+  const postDownVote = () => {
+    axios.post("http://localhost:8080/shows/vote/down", {
+      showId: showId,
+    });
+  };
+
+  const postUpVote = () => {
+    axios
+      .post("http://localhost:8080/shows/vote/up", {
+        showId: showId,
+      })
+      .then((response) => console.log(response));
+  };
+
   return (
     <div className="mainCont">
       <SubNavBar />
@@ -42,6 +56,8 @@ const Detail = () => {
           {" "}
           Favourite{" "}
         </button>
+        <button onClick={postDownVote}>Down</button>
+        <button onClick={postUpVote}>Up</button>
         <p>{summary}</p>
       </div>
     </div>
