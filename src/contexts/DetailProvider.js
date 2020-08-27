@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   fetchSeriesApi,
-  fetchSeriesByIdApi,
+  // fetchSeriesByIdApi,
   fetchEpisodesByIdApi,
   fetchStaffByIdApi,
   fetchSearchBySearchValueApi,
@@ -18,7 +18,6 @@ export const DetailContext = React.createContext();
 
 export function DetailProvider(props) {
   const [series, setSeries] = useState([]);
-  const [main, setMain] = useState([]);
   const [episodes, setEpisodes] = useState([]);
   const [cast, setCast] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
@@ -40,10 +39,6 @@ export function DetailProvider(props) {
     fetchPersonsApi(page).then((data) => {
       setRandomStaff(data.data);
     });
-  };
-
-  const fetchSeriesById = (id) => {
-    fetchSeriesByIdApi(id).then((data1) => setMain(data1.data));
   };
 
   const fetchEpisodesById = (id) => {
@@ -91,8 +86,6 @@ export function DetailProvider(props) {
       value={{
         series,
         fetchSeries,
-        main,
-        fetchSeriesById,
         episodes,
         fetchEpisodesById,
         cast,

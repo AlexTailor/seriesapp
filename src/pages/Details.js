@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { IdProviderContext } from "../contexts/IdProviderContext";
-import { DetailContext } from "../contexts/DetailProvider";
 import SubNavBar from "../components/SubNavBar";
 import axios from "axios";
 
 const Detail = () => {
-  const { main, fetchSeriesById } = useContext(DetailContext);
+  const [main, setMain] = useState([]);
   const { showId } = useContext(IdProviderContext);
-  fetchSeriesById(showId);
+
+  useEffect(() => {
+    axios.get(`http://localhost:8080/shows/${showId}`).then((response) => {
+      setMain(response.data);
+    });
+  }, [showId]);
 
   const summary = main.summary
     ? main.summary

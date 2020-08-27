@@ -4,14 +4,6 @@ export const fetchSeriesApi = async () => {
   return await axios.get("http://localhost:8080/shows");
 };
 
-export const fetchSeriesByIdApi = async (id) => {
-  return await axios.get(`http://localhost:8080/shows/${id}`);
-};
-
-// export const fetchEpisodesByIdApi = async (id) => {
-//   return await axios.get(`http://localhost:8080/shows/${id}/episodes`);
-// };
-
 export const fetchStaffByIdApi = async (id) => {
   return await axios.get(`http://localhost:8080/shows/${id}/staff`);
 };
