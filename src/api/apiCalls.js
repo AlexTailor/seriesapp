@@ -20,13 +20,9 @@ export const fetchPersonsByNameApi = async (name) => {
   return await axios.get(`http://localhost:8080/staff/search/${name}`);
 };
 
-export const fetchPersonsByIdApi = async (id) => {
-  return await axios.get(`http://localhost:8080/staff/${id}`);
-};
-
-export const fetchCastCreditsByIdApi = async (id) => {
-  return await axios.get(`http://localhost:8080/staff/castcredit/${id}`);
-};
+// export const fetchCastCreditsByIdApi = async (id) => {
+//   return await axios.get(`http://localhost:8080/staff/castcredit/${id}`);
+// };
 
 export const fetchSeasonsByIdApi = async (id) => {
   return await axios.get(`http://localhost:8080/shows/${id}/season`);

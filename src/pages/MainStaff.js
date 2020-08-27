@@ -12,8 +12,6 @@ export default function MainStaff() {
     fetchPersons,
   } = useContext(DetailContext);
 
-  console.log("hello");
-
   const getName = (e) => {
     setInputName(e.target.value);
   };

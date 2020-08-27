@@ -1,17 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { IdProviderContext } from "../contexts/IdProviderContext";
-import { DetailContext } from "../contexts/DetailProvider";
+import axios from "axios";
 
 function StaffDetails() {
+  console.log("staffdetails");
   const { staffId } = useContext(IdProviderContext);
-  const {
-    fetchPersonsById,
-    personDetail,
-    fetchCastCreditsById,
-    personCastCredit,
-  } = useContext(DetailContext);
-  fetchPersonsById(staffId);
-  fetchCastCreditsById(staffId);
+
+  const [personDetail, setPersonDetail] = useState([]);
+  const [personCastCredit, setPersonCastCredit] = useState([]);
+
+  useEffect(() => {
+    axios.get(`http://localhost:8080/staff/${staffId}`).then((response) => {
+      setPersonDetail(response.data);
+    });
+  }, [staffId]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/staff/castcredit/${staffId}`)
+      .then((response) => {
+        setPersonCastCredit(response.data);
+      });
+  }, [staffId]);
 
   const pic = personDetail.image ? personDetail.image : [];
   return (

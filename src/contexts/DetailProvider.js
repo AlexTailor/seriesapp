@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import {
   fetchSeriesApi,
-  // fetchSeriesByIdApi,
   fetchEpisodesByIdApi,
   fetchStaffByIdApi,
   fetchSearchBySearchValueApi,
   fetchPersonsApi,
   fetchPersonsByNameApi,
-  fetchPersonsByIdApi,
-  fetchCastCreditsByIdApi,
   fetchSeasonsByIdApi,
   fetchSeasonEpisodeApi,
   fetchFavoriteApi,
@@ -25,8 +22,6 @@ export function DetailProvider(props) {
   const [inputName, setInputName] = useState([]);
   const [randomStaff, setRandomStaff] = useState([]);
   const [searchedPersons, setSearchedPersons] = useState([]);
-  const [personDetail, setPersonDetail] = useState([]);
-  const [personCastCredit, setPersonCastCredit] = useState([]);
   const [seasons, setSeasons] = useState([]);
 
   const fetchSeries = () => {
@@ -63,16 +58,6 @@ export function DetailProvider(props) {
     fetchPersonsByNameApi(name).then((data) => setSearchedPersons(data.data));
   };
 
-  const fetchPersonsById = (staffId) => {
-    fetchPersonsByIdApi(staffId).then((data) => setPersonDetail(data.data));
-  };
-
-  const fetchCastCreditsById = (staffId) => {
-    fetchCastCreditsByIdApi(staffId).then((data) =>
-      setPersonCastCredit(data.data)
-    );
-  };
-
   const fetchSeasonsById = (id) => {
     fetchSeasonsByIdApi(id).then((data) => setSeasons(data.data));
   };
@@ -100,10 +85,6 @@ export function DetailProvider(props) {
         fetchPersonsByName,
         inputName,
         setInputName,
-        personDetail,
-        fetchPersonsById,
-        personCastCredit,
-        fetchCastCreditsById,
         seasons,
         fetchSeasonsById,
         fetchSeasonEpisode,
