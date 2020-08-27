@@ -3,7 +3,6 @@ import { IdProviderContext } from "../contexts/IdProviderContext";
 import axios from "axios";
 
 function StaffDetails() {
-  console.log("staffdetails");
   const { staffId } = useContext(IdProviderContext);
 
   const [personDetail, setPersonDetail] = useState([]);

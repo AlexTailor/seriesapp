@@ -5,11 +5,13 @@ import axios from "axios";
 
 const Detail = () => {
   const [main, setMain] = useState([]);
+  const [newRate, setNewRate] = useState([]);
   const { showId } = useContext(IdProviderContext);
 
   useEffect(() => {
     axios.get(`http://localhost:8080/shows/${showId}`).then((response) => {
       setMain(response.data);
+      setNewRate(response.data.rating.average);
     });
   }, [showId]);
 
@@ -29,7 +31,7 @@ const Detail = () => {
         showId: showId,
         seriesRating: rating,
       })
-      .then((data) => (rating = data));
+      .then((data) => (rating = data.data));
   };
 
   const postDownVote = () => {
@@ -38,7 +40,7 @@ const Detail = () => {
         showId: showId,
         seriesRating: rating,
       })
-      .then((data) => (rating = data));
+      .then((data) => setNewRate(data.data));
   };
 
   const postUpVote = () => {
@@ -47,7 +49,7 @@ const Detail = () => {
         showId: showId,
         seriesRating: rating,
       })
-      .then((response) => console.log(response));
+      .then((response) => setNewRate(response.data));
   };
 
   return (
@@ -60,7 +62,7 @@ const Detail = () => {
           <p>Genres: {main.genres}</p>
           <p>Type: {main.type}</p>
           <p>Status: {main.status}</p>
-          <p>Rating: {rating}</p>
+          <p>Rating: {newRate}</p>
         </div>
         <img alt={main.name} src={pic.medium} />
         <button type="submit" onClick={postData}>
