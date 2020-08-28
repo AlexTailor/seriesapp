@@ -4,15 +4,12 @@ import SubNavBar from "../components/SubNavBar";
 import axios from "axios";
 
 const Detail = () => {
-  const [main, setMain] = useState([]);
+  const { main, fetchSeriesById } = useContext(DetailContext);
   const [newRate, setNewRate] = useState([]);
   const { showId } = useContext(IdProviderContext);
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/shows/${showId}`).then((response) => {
-      setMain(response.data);
-      setNewRate(response.data.rating.average);
-    });
+    fetchSeriesById(showId);
   }, [showId]);
 
   const summary = main.summary
