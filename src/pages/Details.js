@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { IdProviderContext } from "../contexts/IdProviderContext";
+import { DetailContext } from "../contexts/DetailProvider";
 import SubNavBar from "../components/SubNavBar";
 import axios from "axios";
 
@@ -10,6 +11,8 @@ const Detail = () => {
 
   useEffect(() => {
     fetchSeriesById(showId);
+    console.log("working?");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showId]);
 
   const summary = main.summary

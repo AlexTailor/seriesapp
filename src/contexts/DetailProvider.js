@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   fetchSeriesApi,
+  fetchSeriesByIdApi,
   fetchEpisodesByIdApi,
   fetchStaffByIdApi,
   fetchSearchBySearchValueApi,
