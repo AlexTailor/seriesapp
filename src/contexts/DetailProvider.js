@@ -9,6 +9,7 @@ import {
   fetchSeasonsByIdApi,
   fetchSeasonEpisodeApi,
   fetchFavoriteApi,
+  fetchSeriesByIdApi,
 } from "../api/apiCalls";
 
 export const DetailContext = React.createContext();

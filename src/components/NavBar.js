@@ -23,6 +23,7 @@ const NavBar = () => {
           <Link onClick={() => fetchFavorite()} to="/favorites">
             Favorites
           </Link>
+          <Link to="/register">Register</Link>
         </nav>
       </header>
     </div>
