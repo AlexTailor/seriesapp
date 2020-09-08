@@ -10,10 +10,10 @@ const Detail = () => {
   const { showId } = useContext(IdProviderContext);
 
   useEffect(() => {
-    fetchSeriesById(showId);
+    fetchSeriesById();
     console.log("working?");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [showId]);
+  }, []);
 
   const summary = main.summary
     ? main.summary
