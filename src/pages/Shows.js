@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Card from "../components/Card";
 import { DetailContext } from "../contexts/DetailProvider";
 import { Link } from "react-router-dom";
+import { CardContainer } from "../style/StyledComponents";
 
 const Shows = (props) => {
   const {
@@ -20,7 +21,7 @@ const Shows = (props) => {
   };
 
   return (
-    <div className="mainCont">
+    <CardContainer>
       <form>
         <input type="text" onChange={getValue} />
         <Link to={"/shows/search/" + inputValue}>
@@ -32,7 +33,7 @@ const Shows = (props) => {
           <Card key={show.id} index={index} show={show} />
         ))}
       </div>
-    </div>
+    </CardContainer>
   );
 };
 

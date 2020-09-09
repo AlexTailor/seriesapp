@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import { IdProvider } from "./contexts/IdProviderContext";
 import { DetailProvider } from "./contexts/DetailProvider";
 import "./App.css";
+import { Container } from "../src/style/StyledComponents";
 import Episodes from "./pages/Episodes";
 import Staff from "./pages/Staff";
 import SearchedShows from "./pages/SearchedShows";
@@ -23,35 +24,35 @@ function App() {
   return (
     <IdProvider>
       <Router>
-        <div className="App">
-          <DetailProvider>
-            <NavBar />
-            <div className="container">
-              <Route exact path="/favorites" component={Favorites} />
-              <Route
-                exact
-                path="/shows/search/:value"
-                component={SearchedShows}
-              />
-              <Route exact path="/staff/details/:id" component={StaffDetails} />
-              <Route exact path="/search/:name" component={SearchedPeople} />
-              <Route exact path="/staff" component={MainStaff} />
-              <Route exact path="/shows/:id/seasons" component={Seasons} />
-              <Route exact path="/shows/:id" component={Detail} />
-              <Route exact path="/shows/:id/main" component={Main} />
-              <Route exact path="/shows/:id/episodes" component={Episodes} />
-              <Route
-                exact
-                path="/shows/:id/seasonepisodes"
-                component={SeasonEpisodes}
-              />
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/shows/:id/staff" component={Staff} />
-              <Route exact path="/shows" component={Shows} />
-              <Route exact path="/" component={Home} />
-            </div>
-          </DetailProvider>
-        </div>
+        {/* <div className="App"> */}
+        <DetailProvider>
+          <NavBar />
+          <Container>
+            <Route exact path="/favorites" component={Favorites} />
+            <Route
+              exact
+              path="/shows/search/:value"
+              component={SearchedShows}
+            />
+            <Route exact path="/staff/details/:id" component={StaffDetails} />
+            <Route exact path="/search/:name" component={SearchedPeople} />
+            <Route exact path="/staff" component={MainStaff} />
+            <Route exact path="/shows/:id/seasons" component={Seasons} />
+            <Route exact path="/shows/:id" component={Detail} />
+            <Route exact path="/shows/:id/main" component={Main} />
+            <Route exact path="/shows/:id/episodes" component={Episodes} />
+            <Route
+              exact
+              path="/shows/:id/seasonepisodes"
+              component={SeasonEpisodes}
+            />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/shows/:id/staff" component={Staff} />
+            <Route exact path="/shows" component={Shows} />
+            <Route exact path="/" component={Home} />
+          </Container>
+        </DetailProvider>
+        {/* </div> */}
       </Router>
     </IdProvider>
   );

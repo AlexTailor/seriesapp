@@ -10,7 +10,6 @@ import {
   fetchSeasonsByIdApi,
   fetchSeasonEpisodeApi,
   fetchFavoriteApi,
-  fetchSeriesByIdApi,
 } from "../api/apiCalls";
 import { IdProviderContext } from "../contexts/IdProviderContext";
 
@@ -30,8 +29,6 @@ export function DetailProvider(props) {
   const [seasons, setSeasons] = useState([]);
   const [token, setToken] = useState([]);
 
-  const { showId } = useContext(IdProviderContext);
-
   const fetchSeries = () => {
     fetchSeriesApi().then((data) => {
       setSeries(data.data);
@@ -43,7 +40,6 @@ export function DetailProvider(props) {
       setRandomStaff(data.data);
     });
   };
-
 
   function fetchSeriesById() {
     fetchSeriesByIdApi(showId).then((data1) => setMain(data1.data));
