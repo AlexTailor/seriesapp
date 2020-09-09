@@ -1,14 +1,16 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { DetailContext } from "../contexts/DetailProvider";
+import { useCookies } from "react-cookie";
 
 export default function Login() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState([]);
-  const { token, setToken } = useContext(DetailContext);
+  // const { token, setToken } = useContext(DetailContext);
+  const [cookies, setCookie] = useCookies(["token"]);
 
   const loggedInName =
-    token === "" ? "Sign in!" : "You are logged in as " + userName;
+    cookies.token === "" ? "Sign in!" : "You are logged in as " + userName;
 
   const getUserName = (e) => {
     setUserName(e.target.value);
@@ -25,7 +27,8 @@ export default function Login() {
         password: password,
       })
       .then((data) => {
-        setToken(data.data.token);
+        console.log(data.data.token);
+        setCookie("token", data.data.token, { path: "/" });
       })
       .catch((error) => {
         console.error("Error:", error);
