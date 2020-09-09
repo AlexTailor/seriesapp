@@ -38,6 +38,7 @@ const Detail = () => {
         showId: showId,
         seriesRating: rating,
       })
+
       .then((data) => setNewRate(data.data));
   };
 

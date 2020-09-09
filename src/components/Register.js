@@ -18,11 +18,11 @@ export default function Register() {
       username: userName,
       password: password,
     });
-    //   .then((data) => setNewRate(data.data));
   };
 
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
+      <h1>hello</h1>
       <h1>hello</h1>
       <form>
         <label>Name:</label>

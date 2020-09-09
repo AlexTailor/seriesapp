@@ -26,6 +26,7 @@ export function DetailProvider(props) {
   const [randomStaff, setRandomStaff] = useState([]);
   const [searchedPersons, setSearchedPersons] = useState([]);
   const [seasons, setSeasons] = useState([]);
+  const [token, setToken] = useState([]);
 
   const fetchSeries = () => {
     fetchSeriesApi().then((data) => {
@@ -98,6 +99,8 @@ export function DetailProvider(props) {
         fetchSeasonsById,
         fetchSeasonEpisode,
         fetchFavorite,
+        token,
+        setToken,
       }}
     >
       {props.children}
