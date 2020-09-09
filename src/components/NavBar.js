@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "../style/Style.css";
 import { DetailContext } from "../contexts/DetailProvider";
+import Login from "./Login";
 
 const NavBar = () => {
   const { fetchSeries, fetchPersons, fetchFavorite } = useContext(
@@ -23,7 +24,9 @@ const NavBar = () => {
           <Link onClick={() => fetchFavorite()} to="/favorites">
             Favorites
           </Link>
+          <Link to="/register">Register</Link>
         </nav>
+        <Login />
       </header>
     </div>
   );

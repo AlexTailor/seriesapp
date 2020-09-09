@@ -17,6 +17,7 @@ import StaffDetails from "./pages/StaffDetails";
 import Seasons from "./pages/Seasons";
 import SeasonEpisodes from "./pages/SeasonEpisodes";
 import Favorites from "./pages/Favorites";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
                 path="/shows/:id/seasonepisodes"
                 component={SeasonEpisodes}
               />
+              <Route exact path="/register" component={Register} />
               <Route exact path="/shows/:id/staff" component={Staff} />
               <Route exact path="/shows" component={Shows} />
               <Route exact path="/" component={Home} />

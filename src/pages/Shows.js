@@ -15,7 +15,7 @@ const Shows = (props) => {
     setInputValue(e.target.value);
   };
 
-  const getInput = (e) => {
+  const getInput = () => {
     fetchSearchBySearchValue(inputValue);
   };
 

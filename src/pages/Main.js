@@ -6,7 +6,6 @@ const Main = () => {
   return (
     <div>
       <p>{main.main.name}</p>
-      {/* <img alt={main.main.name} src={main.main.image.medium} /> */}
     </div>
   );
 };
