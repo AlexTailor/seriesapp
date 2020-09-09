@@ -3,7 +3,6 @@ import { IdProviderContext } from "../contexts/IdProviderContext";
 import { DetailContext } from "../contexts/DetailProvider";
 import SubNavBar from "../components/SubNavBar";
 import axios from "axios";
-import { DetailContext } from "../contexts/DetailProvider";
 
 const Detail = () => {
   const { main, fetchSeriesById } = useContext(DetailContext);
@@ -13,7 +12,7 @@ const Detail = () => {
   useEffect(() => {
     fetchSeriesById();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [showId]);
 
   const summary = main.summary
     ? main.summary
