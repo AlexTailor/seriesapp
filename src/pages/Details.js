@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { IdProviderContext } from "../contexts/IdProviderContext";
+import { DetailContext } from "../contexts/DetailProvider";
 import SubNavBar from "../components/SubNavBar";
 import axios from "axios";
 import { DetailContext } from "../contexts/DetailProvider";

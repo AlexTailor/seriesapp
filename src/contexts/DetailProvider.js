@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import {
   fetchSeriesApi,
+  fetchSeriesByIdApi,
   fetchEpisodesByIdApi,
   fetchStaffByIdApi,
   fetchSearchBySearchValueApi,
@@ -29,6 +30,8 @@ export function DetailProvider(props) {
   const [seasons, setSeasons] = useState([]);
   const [token, setToken] = useState([]);
 
+  const { showId } = useContext(IdProviderContext);
+
   const fetchSeries = () => {
     fetchSeriesApi().then((data) => {
       setSeries(data.data);
@@ -41,7 +44,8 @@ export function DetailProvider(props) {
     });
   };
 
-  function fetchSeriesById(id) {
+
+  function fetchSeriesById() {
     fetchSeriesByIdApi(showId).then((data1) => setMain(data1.data));
   }
 
