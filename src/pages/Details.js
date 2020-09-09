@@ -10,8 +10,9 @@ const Detail = () => {
   const { showId } = useContext(IdProviderContext);
 
   useEffect(() => {
-    fetchSeriesById(showId);
-  }, [showId]);
+    fetchSeriesById();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const summary = main.summary
     ? main.summary
@@ -23,7 +24,7 @@ const Detail = () => {
   const pic = main.image ? main.image : [];
   let rating = main.rating ? main.rating.average : [];
 
-  const postData = () => {
+  const postFavouriteSeries = () => {
     axios
       .post("http://localhost:8080/shows/firstPost", {
         showId: showId,
@@ -64,7 +65,7 @@ const Detail = () => {
           <p>Rating: {newRate}</p>
         </div>
         <img alt={main.name} src={pic.medium} />
-        <button type="submit" onClick={postData}>
+        <button type="submit" onClick={postFavouriteSeries}>
           {" "}
           Favourite{" "}
         </button>

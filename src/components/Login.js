@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { DetailContext } from "../contexts/DetailProvider";
 import { useCookies } from "react-cookie";
 
 export default function Login() {
@@ -42,7 +41,7 @@ export default function Login() {
         <input type="text" onChange={getUserName} placeholder="Name" />
         <br />
         <input
-          type="text"
+          type="password"
           name="name"
           onChange={getPassword}
           placeholder="Password"

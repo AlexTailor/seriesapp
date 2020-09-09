@@ -33,7 +33,7 @@ export default function Register() {
           Password:
           <br />
         </label>
-        <input type="text" name="name" onChange={getPassword} />
+        <input type="password" name="name" onChange={getPassword} />
         <br />
         <input type="submit" value="Submit" onClick={postUserDetails} />
       </form>

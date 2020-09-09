@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   fetchSeriesApi,
   fetchEpisodesByIdApi,
@@ -11,13 +11,14 @@ import {
   fetchFavoriteApi,
   fetchSeriesByIdApi,
 } from "../api/apiCalls";
+import { IdProviderContext } from "../contexts/IdProviderContext";
 
 export const DetailContext = React.createContext();
 
 export function DetailProvider(props) {
+  const { showId } = useContext(IdProviderContext);
   const [series, setSeries] = useState([]);
   const [main, setMain] = useState([]);
-
   const [episodes, setEpisodes] = useState([]);
   const [cast, setCast] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
@@ -41,7 +42,7 @@ export function DetailProvider(props) {
   };
 
   function fetchSeriesById(id) {
-    fetchSeriesByIdApi(id).then((data1) => setMain(data1.data));
+    fetchSeriesByIdApi(showId).then((data1) => setMain(data1.data));
   }
 
   const fetchEpisodesById = (id) => {
