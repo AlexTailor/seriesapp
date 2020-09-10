@@ -38,7 +38,7 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <div className="login-field">
       <span>{loggedInName}</span>
       <form>
         <input type="text" ref={usern} />

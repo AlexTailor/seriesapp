@@ -10,25 +10,23 @@ const NavBar = () => {
   );
 
   return (
-    <div>
-      <header style={{ textAlign: "center" }}>
-        <nav className="main-nav">
-          <Link to="/">Home</Link>
-          <Link to="/shows" onClick={() => fetchSeries()}>
-            TV Series
-          </Link>
-          <Link to="/staff" onClick={() => fetchPersons("first")}>
-            Staff
-          </Link>
-          <Link to="/channels">Channels</Link>
-          <Link onClick={() => fetchFavorite()} to="/favorites">
-            Favorites
-          </Link>
-          <Link to="/register">Register</Link>
-        </nav>
+    <header>
+      <nav className="main-nav">
+        <Link to="/">Home</Link>
+        <Link to="/shows" onClick={() => fetchSeries()}>
+          TV Series
+        </Link>
+        <Link to="/staff" onClick={() => fetchPersons("first")}>
+          Staff
+        </Link>
+        <Link to="/channels">Channels</Link>
+        <Link onClick={() => fetchFavorite()} to="/favorites">
+          Favorites
+        </Link>
+        <Link to="/register">Register</Link>
         <Login />
-      </header>
-    </div>
+      </nav>
+    </header>
   );
 };
 export default NavBar;
