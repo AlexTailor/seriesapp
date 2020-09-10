@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../style/SignUp.css";
 
 export default function Register() {
   const [userName, setUserName] = useState([]);
@@ -21,20 +22,15 @@ export default function Register() {
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h1>hello</h1>
-      <h1>hello</h1>
+    <div className="contact">
+      <div className="head">
+        <h3>Sign up here</h3>
+      </div>
       <form>
-        <label>Name:</label>
-        <br />
+        <label>Username:</label>
         <input type="text" onChange={getUserName} />
-        <br />
-        <label>
-          Password:
-          <br />
-        </label>
+        <label>Password:</label>
         <input type="password" name="name" onChange={getPassword} />
-        <br />
         <input type="submit" value="Submit" onClick={postUserDetails} />
       </form>
     </div>
