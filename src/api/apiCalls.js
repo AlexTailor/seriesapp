@@ -11,6 +11,7 @@ export const fetchSeriesApi = async () => {
 };
 
 export const fetchSeriesByIdApi = async (id) => {
+  console.log(document.cookie);
   return await axios.get(`http://localhost:8080/shows/${id}`, {
     credentials: "same-origin",
     headers: {
