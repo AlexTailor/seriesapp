@@ -56,23 +56,25 @@ const Detail = () => {
     <div className="mainCont">
       <SubNavBar />
       <br />
+      <p>{main.name}</p>
       <div className="details">
-        <p>{main.name}</p>
+        <div>
+          <img alt={main.name} src={pic.medium} />
+        </div>
         <div className="card">
           <p>Genres: {main.genres}</p>
           <p>Type: {main.type}</p>
           <p>Status: {main.status}</p>
           <p>Rating: {newRate}</p>
+          <button type="submit" onClick={postFavouriteSeries}>
+            {" "}
+            Favourite{" "}
+          </button>
+          <button onClick={postDownVote}>Down</button>
+          <button onClick={postUpVote}>Up</button>
         </div>
-        <img alt={main.name} src={pic.medium} />
-        <button type="submit" onClick={postFavouriteSeries}>
-          {" "}
-          Favourite{" "}
-        </button>
-        <button onClick={postDownVote}>Down</button>
-        <button onClick={postUpVote}>Up</button>
-        <p>{summary}</p>
       </div>
+      <p>{summary}</p>
     </div>
   );
 };

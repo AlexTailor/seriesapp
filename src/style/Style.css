@@ -45,6 +45,10 @@ header {
   width: 100%;
 }
 
+.details {
+  display: flex;
+}
+
 .search-form {
   padding-top: 13%;
 }
