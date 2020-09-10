@@ -1,17 +1,38 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { IdProviderContext } from "../contexts/IdProviderContext";
-import { DetailContext } from "../contexts/DetailProvider";
+import axios from "axios";
 
-export default function StaffDetails() {
+function StaffDetails() {
   const { staffId } = useContext(IdProviderContext);
-  const {
-    fetchPersonsById,
-    personDetail,
-    fetchCastCreditsById,
-    personCastCredit,
-  } = useContext(DetailContext);
-  fetchPersonsById(staffId);
-  fetchCastCreditsById(staffId);
+
+  const [personDetail, setPersonDetail] = useState([]);
+  const [personCastCredit, setPersonCastCredit] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/staff/${staffId}`, {
+        credentials: "same-origin",
+        headers: {
+          Authorization: "Bearer " + document.cookie.split("=")[1],
+        },
+      })
+      .then((response) => {
+        setPersonDetail(response.data);
+      });
+  }, [staffId]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/staff/castcredit/${staffId}`, {
+        credentials: "same-origin",
+        headers: {
+          Authorization: "Bearer " + document.cookie.split("=")[1],
+        },
+      })
+      .then((response) => {
+        setPersonCastCredit(response.data);
+      });
+  }, [staffId]);
 
   const pic = personDetail.image ? personDetail.image : [];
   return (
@@ -30,3 +51,5 @@ export default function StaffDetails() {
     </div>
   );
 }
+
+export default React.memo(StaffDetails);

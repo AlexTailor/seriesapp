@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   fetchSeriesApi,
   fetchSeriesByIdApi,
@@ -7,15 +7,16 @@ import {
   fetchSearchBySearchValueApi,
   fetchPersonsApi,
   fetchPersonsByNameApi,
-  fetchPersonsByIdApi,
-  fetchCastCreditsByIdApi,
   fetchSeasonsByIdApi,
   fetchSeasonEpisodeApi,
+  fetchFavoriteApi,
 } from "../api/apiCalls";
+import { IdProviderContext } from "../contexts/IdProviderContext";
 
 export const DetailContext = React.createContext();
 
 export function DetailProvider(props) {
+  const { showId } = useContext(IdProviderContext);
   const [series, setSeries] = useState([]);
   const [main, setMain] = useState([]);
   const [episodes, setEpisodes] = useState([]);
@@ -25,9 +26,8 @@ export function DetailProvider(props) {
   const [inputName, setInputName] = useState([]);
   const [randomStaff, setRandomStaff] = useState([]);
   const [searchedPersons, setSearchedPersons] = useState([]);
-  const [personDetail, setPersonDetail] = useState([]);
-  const [personCastCredit, setPersonCastCredit] = useState([]);
   const [seasons, setSeasons] = useState([]);
+  const [token, setToken] = useState([]);
 
   const fetchSeries = () => {
     fetchSeriesApi().then((data) => {
@@ -35,15 +35,15 @@ export function DetailProvider(props) {
     });
   };
 
-  const fetchPersons = () => {
-    fetchPersonsApi().then((data) => {
+  const fetchPersons = (page) => {
+    fetchPersonsApi(page).then((data) => {
       setRandomStaff(data.data);
     });
   };
 
-  const fetchSeriesById = (id) => {
-    fetchSeriesByIdApi(id).then((data1) => setMain(data1.data));
-  };
+  function fetchSeriesById() {
+    fetchSeriesByIdApi(showId).then((data1) => setMain(data1.data));
+  }
 
   const fetchEpisodesById = (id) => {
     fetchEpisodesByIdApi(id).then((data2) => setEpisodes(data2.data));
@@ -67,18 +67,12 @@ export function DetailProvider(props) {
     fetchPersonsByNameApi(name).then((data) => setSearchedPersons(data.data));
   };
 
-  const fetchPersonsById = (staffId) => {
-    fetchPersonsByIdApi(staffId).then((data) => setPersonDetail(data.data));
-  };
-
-  const fetchCastCreditsById = (staffId) => {
-    fetchCastCreditsByIdApi(staffId).then((data) =>
-      setPersonCastCredit(data.data)
-    );
-  };
-
   const fetchSeasonsById = (id) => {
     fetchSeasonsByIdApi(id).then((data) => setSeasons(data.data));
+  };
+
+  const fetchFavorite = (id) => {
+    fetchFavoriteApi().then((data) => setSeries(data.data));
   };
 
   return (
@@ -102,13 +96,12 @@ export function DetailProvider(props) {
         fetchPersonsByName,
         inputName,
         setInputName,
-        personDetail,
-        fetchPersonsById,
-        personCastCredit,
-        fetchCastCreditsById,
         seasons,
         fetchSeasonsById,
         fetchSeasonEpisode,
+        fetchFavorite,
+        token,
+        setToken,
       }}
     >
       {props.children}

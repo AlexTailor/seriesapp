@@ -15,13 +15,13 @@ const Shows = (props) => {
     setInputValue(e.target.value);
   };
 
-  const getInput = (e) => {
+  const getInput = () => {
     fetchSearchBySearchValue(inputValue);
   };
 
   return (
     <div className="mainCont">
-      <form>
+      <form className="search-form">
         <input type="text" onChange={getValue} />
         <Link to={"/shows/search/" + inputValue}>
           <button onClick={getInput}>Search</button>

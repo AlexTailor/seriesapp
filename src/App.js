@@ -16,6 +16,8 @@ import MainStaff from "./pages/MainStaff";
 import StaffDetails from "./pages/StaffDetails";
 import Seasons from "./pages/Seasons";
 import SeasonEpisodes from "./pages/SeasonEpisodes";
+import Favorites from "./pages/Favorites";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -25,7 +27,7 @@ function App() {
           <DetailProvider>
             <NavBar />
             <div className="container">
-              <Route exact path="/shows" component={Shows} />
+              <Route exact path="/favorites" component={Favorites} />
               <Route
                 exact
                 path="/shows/search/:value"
@@ -43,7 +45,9 @@ function App() {
                 path="/shows/:id/seasonepisodes"
                 component={SeasonEpisodes}
               />
+              <Route exact path="/register" component={Register} />
               <Route exact path="/shows/:id/staff" component={Staff} />
+              <Route exact path="/shows" component={Shows} />
               <Route exact path="/" component={Home} />
             </div>
           </DetailProvider>
