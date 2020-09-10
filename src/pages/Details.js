@@ -26,29 +26,56 @@ const Detail = () => {
 
   const postFavouriteSeries = () => {
     axios
-      .post("http://localhost:8080/shows/firstPost", {
-        showId: showId,
-        seriesRating: rating,
-      })
+      .post(
+        "http://localhost:8080/shows/firstPost",
+        {
+          showId: showId,
+          seriesRating: rating,
+        },
+        {
+          credentials: "same-origin",
+          headers: {
+            Authorization: "Bearer " + document.cookie.split("=")[1],
+          },
+        }
+      )
       .then((data) => (rating = data.data));
   };
 
   const postDownVote = () => {
     axios
-      .post("http://localhost:8080/shows/vote/down", {
-        showId: showId,
-        seriesRating: rating,
-      })
+      .post(
+        "http://localhost:8080/shows/vote/down",
+        {
+          showId: showId,
+          seriesRating: rating,
+        },
+        {
+          credentials: "same-origin",
+          headers: {
+            Authorization: "Bearer " + document.cookie.split("=")[1],
+          },
+        }
+      )
 
       .then((data) => setNewRate(data.data));
   };
 
   const postUpVote = () => {
     axios
-      .post("http://localhost:8080/shows/vote/up", {
-        showId: showId,
-        seriesRating: rating,
-      })
+      .post(
+        "http://localhost:8080/shows/vote/up",
+        {
+          showId: showId,
+          seriesRating: rating,
+        },
+        {
+          credentials: "same-origin",
+          headers: {
+            Authorization: "Bearer " + document.cookie.split("=")[1],
+          },
+        }
+      )
       .then((response) => setNewRate(response.data));
   };
 

@@ -9,14 +9,26 @@ function StaffDetails() {
   const [personCastCredit, setPersonCastCredit] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/staff/${staffId}`).then((response) => {
-      setPersonDetail(response.data);
-    });
+    axios
+      .get(`http://localhost:8080/staff/${staffId}`, {
+        credentials: "same-origin",
+        headers: {
+          Authorization: "Bearer " + document.cookie.split("=")[1],
+        },
+      })
+      .then((response) => {
+        setPersonDetail(response.data);
+      });
   }, [staffId]);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/staff/castcredit/${staffId}`)
+      .get(`http://localhost:8080/staff/castcredit/${staffId}`, {
+        credentials: "same-origin",
+        headers: {
+          Authorization: "Bearer " + document.cookie.split("=")[1],
+        },
+      })
       .then((response) => {
         setPersonCastCredit(response.data);
       });
