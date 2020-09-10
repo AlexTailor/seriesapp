@@ -37,18 +37,26 @@ export default function Login() {
     setUserName("");
   };
 
-  return (
+  return cookies.token === undefined ? (
     <div className="login-field">
-      <span>{loggedInName}</span>
+      <div>{errorMessage}</div>
       <form>
         <input type="text" ref={usern} />
-        {errorMessage}
         <br />
         <input type="password" ref={passw} />
         <br />
-        <input type="reset" value="Submit" onClick={postSingInDetailsDetails} />
-        <input type="reset" value="Logout" onClick={logout} />
+        <input
+          className="bttn"
+          type="reset"
+          value="Submit"
+          onClick={postSingInDetailsDetails}
+        />
       </form>
+    </div>
+  ) : (
+    <div>
+      <span> {loggedInName} </span>
+      <input className="bttn" type="reset" value="Logout" onClick={logout} />
     </div>
   );
 }

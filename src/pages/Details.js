@@ -3,6 +3,8 @@ import { IdProviderContext } from "../contexts/IdProviderContext";
 import { DetailContext } from "../contexts/DetailProvider";
 import SubNavBar from "../components/SubNavBar";
 import axios from "axios";
+import "../style/Style.css";
+import "../style/Card.css";
 
 const Detail = () => {
   const { main, fetchSeriesById } = useContext(DetailContext);
@@ -79,11 +81,11 @@ const Detail = () => {
       .then((response) => setNewRate(response.data));
   };
 
-  return (
+  return document.cookie.length !== 0 ? (
     <div className="mainCont">
       <SubNavBar />
       <br />
-      <p>{main.name}</p>
+      <h1 style={{ textAlign: "center" }}>{main.name}</h1>
       <div className="details">
         <div>
           <img alt={main.name} src={pic.medium} />
@@ -93,16 +95,22 @@ const Detail = () => {
           <p>Type: {main.type}</p>
           <p>Status: {main.status}</p>
           <p>Rating: {newRate}</p>
-          <button type="submit" onClick={postFavouriteSeries}>
+          <button className="bttn" type="submit" onClick={postFavouriteSeries}>
             {" "}
             Favourite{" "}
           </button>
-          <button onClick={postDownVote}>Down</button>
-          <button onClick={postUpVote}>Up</button>
+          <button className="bttn" onClick={postDownVote}>
+            Down
+          </button>
+          <button className="bttn" onClick={postUpVote}>
+            Up
+          </button>
         </div>
       </div>
-      <p>{summary}</p>
+      <div className="card">{summary}</div>
     </div>
+  ) : (
+    <h1>No permission</h1>
   );
 };
 

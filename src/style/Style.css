@@ -15,9 +15,17 @@ body {
   padding: 0;
   background-color: var(--primary);
   color: var(--light);
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   box-sizing: border-box;
   line-height: 1.4;
+}
+.bttn {
+  background-color: #e509149d;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 300;
+  padding: 8px 18px;
+  border-radius: 3px;
 }
 
 img {
@@ -62,8 +70,8 @@ header {
   color: var(--light);
   text-decoration: none;
   margin: 0% 5% 0% 5%;
-  padding: 2.5%;
-  font-size: x-large;
+  padding: 2%;
+  font-size: large;
 }
 
 .main-nav a:hover {
