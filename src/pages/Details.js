@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { IdProviderContext } from "../contexts/IdProviderContext";
 import { DetailContext } from "../contexts/DetailProvider";
 import SubNavBar from "../components/SubNavBar";
+import { CardContainer } from "../style/StyledComponents";
 import axios from "axios";
 
 const Detail = () => {
@@ -53,7 +54,7 @@ const Detail = () => {
   };
 
   return (
-    <div className="mainCont">
+    <CardContainer>
       <SubNavBar />
       <br />
       <div className="details">
@@ -73,7 +74,7 @@ const Detail = () => {
         <button onClick={postUpVote}>Up</button>
         <p>{summary}</p>
       </div>
-    </div>
+    </CardContainer>
   );
 };
 
