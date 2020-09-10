@@ -45,8 +45,13 @@ header {
   width: 100%;
 }
 
+.search-form {
+  padding-top: 13%;
+}
+
 .main-nav {
   display: inline-flex;
+  white-space: nowrap;
 }
 
 .main-nav a {
@@ -62,12 +67,12 @@ header {
 }
 
 .login-field {
-  margin-left: 90%;
+  margin-left: 20%;
 }
 
 .sub-nav {
   grid-area: sb;
-  padding: 0 40px 0 40px;
+  padding-top: 13%;
 }
 
 .sub-nav a {

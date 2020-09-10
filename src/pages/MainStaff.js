@@ -22,7 +22,7 @@ export default function MainStaff() {
   return (
     <div>
       <div className="mainCont">
-        <form>
+        <form className="search-form">
           <input type="text" onChange={getName} />
           <Link to={"/search/" + inputName}>
             <button onClick={getInput}>Search</button>
