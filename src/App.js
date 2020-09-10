@@ -24,7 +24,6 @@ function App() {
   return (
     <IdProvider>
       <Router>
-        {/* <div className="App"> */}
         <DetailProvider>
           <NavBar />
           <Container>
@@ -52,7 +51,6 @@ function App() {
             <Route exact path="/" component={Home} />
           </Container>
         </DetailProvider>
-        {/* </div> */}
       </Router>
     </IdProvider>
   );

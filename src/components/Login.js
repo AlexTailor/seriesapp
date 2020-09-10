@@ -1,57 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 
 export default function Login() {
   const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState([]);
-  // const { token, setToken } = useContext(DetailContext);
-  const [cookies, setCookie] = useCookies(["token"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+  const [errorMessage, setErrorMessage] = useState("");
+  const usern = useRef(null);
+  const passw = useRef(null);
 
   const loggedInName =
-    cookies.token === "" ? "Sign in!" : "You are logged in as " + userName;
-
-  const getUserName = (e) => {
-    setUserName(e.target.value);
-  };
-
-  const getPassword = (e) => {
-    setPassword(e.target.value);
-  };
+    cookies.token === undefined
+      ? "Sign in!"
+      : "You are logged in as " + userName;
 
   const postSingInDetailsDetails = (event) => {
+    setErrorMessage("");
+    setUserName(usern.current.value);
     axios
       .post("http://localhost:8080/signin", {
-        username: userName,
-        password: password,
+        username: usern.current.value,
+        password: passw.current.value,
       })
       .then((data) => {
-        console.log(data.data.token);
         setCookie("token", data.data.token, { path: "/" });
       })
       .catch((error) => {
+        setErrorMessage("Wrong username or password!");
         console.error("Error:", error);
       });
+  };
+
+  const logout = () => {
+    setErrorMessage("");
+    removeCookie("token");
+    setUserName("");
   };
 
   return (
     <div>
       <span>{loggedInName}</span>
       <form>
-        <input type="text" onChange={getUserName} placeholder="Name" />
+        <input type="text" ref={usern} />
+        {errorMessage}
         <br />
-        <input
-          type="password"
-          name="name"
-          onChange={getPassword}
-          placeholder="Password"
-        />
+        <input type="password" ref={passw} />
         <br />
-        <input
-          type="button"
-          value="Submit"
-          onClick={postSingInDetailsDetails}
-        />
+        <input type="reset" value="Submit" onClick={postSingInDetailsDetails} />
+        <input type="reset" value="Logout" onClick={logout} />
       </form>
     </div>
   );
