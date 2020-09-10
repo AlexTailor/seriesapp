@@ -95,14 +95,6 @@ header {
   color: var(--dark);
 }
 
-/* MAIN CONTIANER */
-.main-container {
-}
-
-.mainCont {
-  margin-top: 110px;
-}
-
 .box {
   display: grid;
   grid-gap: 5px;
